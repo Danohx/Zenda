@@ -1,6 +1,39 @@
 /* 
- * 1. ZENDA GLOBAL CSS RESET MEJORADO
+ * ZENDA GLOBAL CSS RESET MEJORADO COMPLETO
  */
+
+/* ---------------------------------------------------- */
+/* 1. VARIABLES DE COLOR MEJORADAS CON GRADIENTES Y SOMBRAS */
+/* ---------------------------------------------------- */
+:root {
+    --color-primary: #1A237E;
+    --color-primary-light: #283593;
+    --color-primary-dark: #0d1440;
+    --color-accent: #E91E63;
+    --color-accent-light: #f48fb1;
+    --color-gold: #FFD700;
+    --color-gold-light: #ffecb3;
+    --color-text: #333333;
+    --color-text-light: #666666;
+    --color-white: #FFFFFF;
+    --color-light-gray: #F5F5F5;
+    --color-medium-gray: #e0e0e0;
+    
+    /* Nuevas variables para mejoras */
+    --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, #ad1457 100%);
+    --gradient-gold: linear-gradient(135deg, var(--color-gold) 0%, #ffca28 100%);
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --box-shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.15);
+    --border-radius: 12px;
+    --border-radius-lg: 20px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------------------------------------------------- */
+/* 2. CSS RESET MEJORADO */
+/* ---------------------------------------------------- */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -10,6 +43,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 body {
@@ -52,33 +86,20 @@ img {
     display: block;
 }
 
-/* ---------------------------------------------------- */
-/* 2. VARIABLES DE COLOR MEJORADAS CON GRADIENTES Y SOMBRAS */
-/* ---------------------------------------------------- */
-:root {
-    --color-primary: #1A237E;
-    --color-primary-light: #283593;
-    --color-primary-dark: #0d1440;
-    --color-accent: #E91E63;
-    --color-accent-light: #f48fb1;
-    --color-gold: #FFD700;
-    --color-gold-light: #ffecb3;
-    --color-text: #333333;
-    --color-text-light: #666666;
-    --color-white: #FFFFFF;
-    --color-light-gray: #F5F5F5;
-    --color-medium-gray: #e0e0e0;
-    
-    /* Nuevas variables para mejoras */
-    --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-    --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, #ad1457 100%);
-    --gradient-gold: linear-gradient(135deg, var(--color-gold) 0%, #ffca28 100%);
-    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
-    --box-shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.15);
-    --border-radius: 12px;
-    --border-radius-lg: 20px;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Mejoras para listas */
+ul, ol {
+    list-style-position: inside;
+}
+
+/* Mejoras para textos */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
 }
 
 /* ---------------------------------------------------- */
@@ -213,7 +234,387 @@ img {
 }
 
 /* ---------------------------------------------------- */
-/* 4. FOOTER MEJORADO CON DISEÑO MÁS MODERNO */
+/* 4. HERO SECTION MEJORADA */
+/* ---------------------------------------------------- */
+
+.hero-section {
+    padding: 100px 5% 80px;
+    text-align: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="%231A237E" opacity="0.03"/></svg>');
+    background-size: cover;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-section h2 {
+    color: var(--color-accent);
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    font-weight: 800;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-section p {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+}
+
+.hero-section img {
+    max-width: 700px;
+    width: 100%;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-strong);
+    margin: 40px auto 0;
+    transition: transform 0.5s ease;
+}
+
+.hero-section img:hover {
+    transform: scale(1.02);
+}
+
+/* ---------------------------------------------------- */
+/* 5. ABOUT US SECTION MEJORADA */
+/* ---------------------------------------------------- */
+
+.about-us-section {
+    padding: 100px 5%;
+    background-color: var(--color-white);
+    text-align: center;
+    position: relative;
+}
+
+.about-us-section h2 {
+    color: var(--color-accent);
+    border-bottom: 3px solid var(--color-gold);
+    padding-bottom: 15px;
+    display: inline-block;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.about-us-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-us-text {
+    text-align: left;
+}
+
+.about-us-section p {
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.about-us-image {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.about-us-image img {
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+.about-us-image:hover img {
+    transform: scale(1.05);
+}
+
+/* ---------------------------------------------------- */
+/* 6. PRODUCTS PREVIEW SECTION MEJORADA */
+/* ---------------------------------------------------- */
+
+.products-preview-section {
+    padding: 100px 5%;
+    background-color: var(--color-light-gray);
+    text-align: center;
+    position: relative;
+}
+
+.products-preview-section h2 {
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-gold);
+    padding-bottom: 15px;
+    display: inline-block;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    padding: 20px;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ---------------------------------------------------- */
+/* 7. PRODUCT CARD MEJORADA CON DISEÑO MÁS ELEGANTE */
+/* ---------------------------------------------------- */
+
+.product-card {
+    border: 2px solid var(--color-gold);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    text-align: center;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--box-shadow-hover);
+    border-color: var(--color-accent);
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient-gold);
+}
+
+.product-card-image {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    margin-bottom: 10px;
+    overflow: visible;
+}
+
+.product-card-image img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-card-image img {
+    transform: translateY(-8px) scale(1.03);
+    filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.2));
+}
+
+.product-card h3 {
+    color: var(--color-accent);
+    margin: 15px 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.product-card .price {
+    color: var(--color-primary);
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 15px 0;
+}
+
+.product-card .price span {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    text-decoration: line-through;
+    margin-left: 10px;
+}
+
+.nutritional-info {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: var(--color-light-gray);
+    border-radius: 8px;
+    color: var(--color-text);
+    text-align: left;
+    flex-grow: 1;
+}
+
+.nutritional-info h4 {
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.nutritional-info p {
+    margin: 8px 0;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nutritional-info span {
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+.product-card-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--gradient-accent);
+    color: var(--color-white);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 2;
+}
+
+.product-card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* ---------------------------------------------------- */
+/* 8. CTA SECTION MEJORADA */
+/* ---------------------------------------------------- */
+
+.cta-section {
+    background: var(--gradient-accent);
+    color: var(--color-white);
+    padding: 80px 5%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="50" cy="50" r="40" fill="white" opacity="0.05"/></svg>');
+    background-size: cover;
+    z-index: 0;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.cta-section p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* ---------------------------------------------------- */
+/* 9. PÁGINA DE PRODUCTOS MEJORADA */
+/* ---------------------------------------------------- */
+
+.productos-page-container {
+    padding: 80px 5% 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.productos-page-title {
+    color: var(--color-primary);
+    font-size: 3rem;
+    margin-bottom: 15px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.productos-page-description {
+    color: var(--color-text-light);
+    font-size: 1.2rem;
+    margin-bottom: 60px;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+/* Filtros de productos */
+.product-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.filter-btn {
+    padding: 10px 25px;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-medium-gray);
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    color: var(--color-text);
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--gradient-primary);
+    color: var(--color-white);
+    border-color: transparent;
+}
+
+/* ---------------------------------------------------- */
+/* 10. FOOTER MEJORADO CON DISEÑO MÁS MODERNO */
 /* ---------------------------------------------------- */
 
 .footer {
@@ -301,11 +702,11 @@ img {
 }
 
 /* ---------------------------------------------------- */
-/* 5. BOTONES MEJORADOS CON EFECTOS Y VARIANTES */
+/* 11. BOTONES MEJORADOS CON EFECTOS Y VARIANTES */
 /* ---------------------------------------------------- */
 
 .btn {
-    padding: 12px 30px;
+    padding: 15px 30px;
     border-radius: 50px;
     border: none;
     cursor: pointer;
@@ -390,368 +791,77 @@ img {
 }
 
 /* ---------------------------------------------------- */
-/* 6. SECCIONES MEJORADAS CON ANIMACIONES Y DISEÑO MODERNO */
+/* 12. ANIMACIONES Y EFECTOS ESPECIALES */
 /* ---------------------------------------------------- */
 
-/* Hero Section Mejorada */
-.hero-section {
-    padding: 100px 5% 80px;
-    text-align: center;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    position: relative;
-    overflow: hidden;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="%231A237E" opacity="0.03"/></svg>');
-    background-size: cover;
-    z-index: 0;
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(233, 30, 99, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(233, 30, 99, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(233, 30, 99, 0);
+    }
 }
 
-.hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 1200px;
-    margin: 0 auto;
+.fade-in {
+    animation: fadeInUp 0.6s ease forwards;
 }
 
-.hero-section h2 {
-    color: var(--color-accent);
-    font-size: 3.5rem;
-    margin-bottom: 15px;
-    font-weight: 800;
-    line-height: 1.1;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+.pulse {
+    animation: pulse 2s infinite;
 }
 
-.hero-section p {
-    color: var(--color-primary);
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: 300;
+.delay-1 {
+    animation-delay: 0.2s;
 }
 
-.hero-section img {
-    max-width: 700px;
-    width: 100%;
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--box-shadow-strong);
-    margin: 40px auto 0;
-    transition: transform 0.5s ease;
+.delay-2 {
+    animation-delay: 0.4s;
 }
 
-.hero-section img:hover {
-    transform: scale(1.02);
+.delay-3 {
+    animation-delay: 0.6s;
 }
 
-/* About Us Section Mejorada */
-.about-us-section {
-    padding: 100px 5%;
-    background-color: var(--color-white);
-    text-align: center;
-    position: relative;
+/* Efecto de carga suave para imágenes */
+img.loaded {
+    opacity: 1;
 }
 
-.about-us-section h2 {
-    color: var(--color-accent);
-    border-bottom: 3px solid var(--color-gold);
-    padding-bottom: 15px;
-    display: inline-block;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-    font-weight: 700;
+/* Scroll personalizado */
+::-webkit-scrollbar {
+    width: 10px;
 }
 
-.about-us-content {
-    max-width: 900px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
+::-webkit-scrollbar-track {
+    background: var(--color-light-gray);
 }
 
-.about-us-text {
-    text-align: left;
-}
-
-.about-us-section p {
-    line-height: 1.8;
-    color: var(--color-text);
-    margin-bottom: 25px;
-    font-size: 1.1rem;
-}
-
-.about-us-image {
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--box-shadow);
-}
-
-.about-us-image img {
-    transition: transform 0.5s ease;
-}
-
-.about-us-image:hover img {
-    transform: scale(1.05);
-}
-
-/* Products Preview Section Mejorada */
-.products-preview-section {
-    padding: 100px 5%;
-    background-color: var(--color-light-gray);
-    text-align: center;
-    position: relative;
-}
-
-.products-preview-section h2 {
-    color: var(--color-primary);
-    border-bottom: 3px solid var(--color-gold);
-    padding-bottom: 15px;
-    display: inline-block;
-    margin-bottom: 50px;
-    font-size: 2.5rem;
-    font-weight: 700;
-}
-
-.products-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* CTA Section Mejorada */
-.cta-section {
-    background: var(--gradient-accent);
-    color: var(--color-white);
-    padding: 80px 5%;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="50" cy="50" r="40" fill="white" opacity="0.05"/></svg>');
-    background-size: cover;
-    z-index: 0;
-}
-
-.cta-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.cta-section h2 {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
-    font-weight: 800;
-}
-
-.cta-section p {
-    font-size: 1.3rem;
-    margin-bottom: 40px;
-    opacity: 0.9;
-    font-weight: 300;
-}
-
-/* ---------------------------------------------------- */
-/* 7. PRODUCT CARD MEJORADA CON DISEÑO MÁS ELEGANTE */
-/* ---------------------------------------------------- */
-
-.product-card {
-    border: 2px solid var(--color-gold);
-    border-radius: var(--border-radius);
-    padding: 25px;
-    text-align: center;
-    background-color: var(--color-white);
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--box-shadow-hover);
-    border-color: var(--color-accent);
-}
-
-.product-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: var(--gradient-gold);
-}
-
-.product-card-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.product-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.product-card:hover .product-card-image img {
-    transform: scale(1.05);
-}
-
-.product-card h3 {
-    color: var(--color-accent);
-    margin: 15px 0;
-    font-size: 1.4rem;
-    font-weight: 700;
-}
-
-.product-card .price {
-    color: var(--color-primary);
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin: 15px 0;
-}
-
-.product-card .price span {
-    font-size: 1rem;
-    color: var(--color-text-light);
-    text-decoration: line-through;
-    margin-left: 10px;
-}
-
-.nutritional-info {
-    margin: 20px 0;
-    padding: 15px;
-    background-color: var(--color-light-gray);
-    border-radius: 8px;
-    color: var(--color-text);
-    text-align: left;
-    flex-grow: 1;
-}
-
-.nutritional-info h4 {
-    color: var(--color-primary);
-    margin-bottom: 10px;
-    font-size: 1rem;
-}
-
-.nutritional-info p {
-    margin: 8px 0;
-    font-size: 0.9rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-.nutritional-info span {
-    font-weight: 700;
-    color: var(--color-accent);
-}
-
-.product-card-badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: var(--gradient-accent);
-    color: var(--color-white);
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    z-index: 2;
-}
-
-.product-card-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-/* ---------------------------------------------------- */
-/* 8. PÁGINA DE PRODUCTOS MEJORADA */
-/* ---------------------------------------------------- */
-
-.productos-page-container {
-    padding: 80px 5% 100px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.productos-page-title {
-    color: var(--color-primary);
-    font-size: 3rem;
-    margin-bottom: 15px;
-    font-weight: 800;
-    text-align: center;
-}
-
-.productos-page-description {
-    color: var(--color-text-light);
-    font-size: 1.2rem;
-    margin-bottom: 60px;
-    text-align: center;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.7;
-}
-
-/* Filtros de productos */
-.product-filters {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 50px;
-}
-
-.filter-btn {
-    padding: 10px 25px;
-    background-color: var(--color-white);
-    border: 2px solid var(--color-medium-gray);
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.filter-btn.active,
-.filter-btn:hover {
+::-webkit-scrollbar-thumb {
     background: var(--gradient-primary);
-    color: var(--color-white);
-    border-color: transparent;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-light);
 }
 
 /* ---------------------------------------------------- */
-/* 9. MEDIA QUERIES PARA RESPONSIVE DESIGN */
+/* 13. MEDIA QUERIES PARA RESPONSIVE DESIGN */
 /* ---------------------------------------------------- */
 
 /* Tablet */
@@ -775,6 +885,10 @@ img {
     
     .products-container {
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    
+    .cta-section h2 {
+        font-size: 2.3rem;
     }
 }
 
@@ -804,6 +918,7 @@ img {
         transition: right 0.4s ease;
         z-index: 1000;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        padding: 20px;
     }
     
     .header nav.active {
@@ -856,6 +971,15 @@ img {
     .productos-page-title {
         font-size: 2.2rem;
     }
+    
+    .product-filters {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-btn {
+        width: 200px;
+    }
 }
 
 /* Pequeños móviles */
@@ -865,7 +989,7 @@ img {
     }
     
     .btn {
-        padding: 10px 20px;
+        padding: 12px 24px;
         font-size: 0.9rem;
     }
     
@@ -876,79 +1000,34 @@ img {
     .products-container {
         grid-template-columns: 1fr;
     }
-}
-
-/* ---------------------------------------------------- */
-/* 10. ANIMACIONES Y EFECTOS ESPECIALES */
-/* ---------------------------------------------------- */
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+    
+    .about-us-content {
+        gap: 30px;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    
+    .cta-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .productos-page-title {
+        font-size: 1.8rem;
     }
 }
 
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(233, 30, 99, 0.4);
+/* Pantallas muy grandes */
+@media (min-width: 1600px) {
+    .hero-section,
+    .about-us-section,
+    .products-preview-section,
+    .cta-section,
+    .productos-page-container {
+        padding-left: 10%;
+        padding-right: 10%;
     }
-    70% {
-        box-shadow: 0 0 0 10px rgba(233, 30, 99, 0);
+    
+    .header,
+    .footer {
+        padding-left: 10%;
+        padding-right: 10%;
     }
-    100% {
-        box-shadow: 0 0 0 0 rgba(233, 30, 99, 0);
-    }
-}
-
-.fade-in {
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-.pulse {
-    animation: pulse 2s infinite;
-}
-
-.delay-1 {
-    animation-delay: 0.2s;
-}
-
-.delay-2 {
-    animation-delay: 0.4s;
-}
-
-.delay-3 {
-    animation-delay: 0.6s;
-}
-
-/* Efecto de carga suave para imágenes */
-img {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-img.loaded {
-    opacity: 1;
-}
-
-/* Scroll personalizado */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--color-light-gray);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--gradient-primary);
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--color-primary-light);
 }
