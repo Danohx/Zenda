@@ -1,5 +1,4 @@
 // src/data/constants.ts
-// import mandarinaImg from '../assets/mandarina.jpg';
 import fresaImg from '../assets/Fresa.jpg';
 import pinaImg from '../assets/Piña-Jamaica.jpg';
 import mandarinaImg from '../assets/mandarina.jpg';

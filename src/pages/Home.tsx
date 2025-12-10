@@ -54,9 +54,6 @@ const ProductsPreview: React.FC = () => (
                 <ProductCard key={product.name} {...product} /> 
             ))}
         </div>
-        {/* <Button variant="primary" className="btn-margin-top">
-            Ver Menú Completo
-        </Button> */}
     </section>
 );
 
