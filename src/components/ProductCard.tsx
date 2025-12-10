@@ -1,7 +1,6 @@
 // src/components/ProductCard.tsx
 import React from 'react';
 import { type ProductType } from '../data/constants';
-import Button from './Button';
 
 // Desestructuramos las props para que el código sea más limpio
 const ProductCard: React.FC<ProductType> = ({ name, imageUrl }) => {
@@ -19,9 +18,9 @@ const ProductCard: React.FC<ProductType> = ({ name, imageUrl }) => {
             
             <h3 className="product-card-title">{name}</h3>
 
-            <Button variant="accent" onClick={() => alert(`Mostrando detalles de ${name}`)}>
+            {/* <Button variant="accent" onClick={() => alert(`Mostrando detalles de ${name}`)}>
                 Ver Detalles Nutrimentales
-            </Button>
+            </Button> */}
         </div>
     );
 };

@@ -297,59 +297,71 @@ p {
 }
 
 /* ---------------------------------------------------- */
-/* 5. ABOUT US SECTION MEJORADA */
+/* 5. ABOUT US SECTION MEJORADA (Video Centrado Medio) */
 /* ---------------------------------------------------- */
 
 .about-us-section {
     padding: 100px 5%;
     background-color: var(--color-white);
-    text-align: center;
     position: relative;
 }
 
+/* Título de la sección */
 .about-us-section h2 {
     color: var(--color-accent);
     border-bottom: 3px solid var(--color-gold);
     padding-bottom: 15px;
     display: inline-block;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-size: 2.5rem;
     font-weight: 700;
+    /* Aseguramos que el título esté centrado */
+    width: 100%; 
+    text-align: center;
 }
 
-.about-us-content {
-    max-width: 900px;
+/* Contenedor Principal: Flex Columna para apilar uno sobre otro */
+.about-content {
+    max-width: 1000px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
+    display: flex;
+    flex-direction: column; /* Esto pone el video debajo del texto */
+    align-items: center;    /* Centra todo horizontalmente */
+    text-align: center;     /* Centra el texto de los párrafos */
 }
 
-.about-us-text {
-    text-align: left;
+/* Contenedor de Texto */
+.text-container {
+    max-width: 800px; /* Evita que las líneas de texto sean muy largas */
+    margin-bottom: 50px; /* Espacio entre el texto y el video */
 }
 
-.about-us-section p {
+.text-container p {
     line-height: 1.8;
     color: var(--color-text);
-    margin-bottom: 25px;
-    font-size: 1.1rem;
+    font-size: 1.15rem; /* Un poco más grande para mejor lectura */
 }
 
-.about-us-image {
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--box-shadow);
-}
-
-.about-us-image img {
-    transition: transform 0.5s ease;
+/* Contenedor de Video "Mediano" */
+.video-container {
     width: 100%;
+    /* AQUÍ CONTROLA EL TAMAÑO: 
+       700px es un buen tamaño "medio" para desktop. 
+       Si lo quieres más grande sube a 800px, más chico a 600px. */
+    max-width: 700px; 
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden; /* Para que el video respete los bordes redondeados */
+    
+    /* Sombra elegante para darle profundidad */
+    box-shadow: var(--box-shadow-strong);
 }
 
-.about-us-image:hover img {
-    transform: scale(1.05);
+.video-container video {
+    display: block; /* Quita espacios extra abajo */
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
 }
 
 /* ---------------------------------------------------- */

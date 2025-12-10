@@ -16,12 +16,33 @@ const HeroSection: React.FC = () => (
     </section>
 );
 
+// Modificación de AboutUsSection
 const AboutUsSection: React.FC = () => (
     <section className="about-us-section">
-      <h2>Nuestra Historia: De la Flor al Vaso</h2>
-      <p>
-        En Zenda, combinamos recetas ancestrales con ingredientes frescos de la más alta calidad. Vendemos el equilibrio perfecto entre sabor y bienestar, usando la bugambilia como nuestro ingrediente estrella para crear bebidas funcionales y deliciosas.
-      </p>
+      <div className="about-content">
+        <div className="text-container">
+            <h2>Nuestra Historia: De la Flor al Vaso</h2>
+            <p>
+            En Zenda, combinamos recetas ancestrales con ingredientes frescos...
+            (resto del texto)
+            </p>
+        </div>
+        
+        <div className="video-container">
+            <video 
+                autoPlay
+                muted
+                playsInline
+                controls 
+                loop
+                width="100%" 
+                style={{ borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+            >
+                <source src="/videos/info-zenda.mp4" type="video/mp4" />
+                Tu navegador no soporta videos.
+            </video>
+        </div>
+      </div>
     </section>
 );
 
@@ -30,13 +51,12 @@ const ProductsPreview: React.FC = () => (
         <h2>Explora Nuestros Sabores</h2>
         <div className="products-container">
             {productsData.slice(0, 3).map(product => (
-                // Pasamos la clase aquí. El ProductCard la recibe vía props.style
                 <ProductCard key={product.name} {...product} /> 
             ))}
         </div>
-        <Button variant="primary" className="btn-margin-top">
+        {/* <Button variant="primary" className="btn-margin-top">
             Ver Menú Completo
-        </Button>
+        </Button> */}
     </section>
 );
 
