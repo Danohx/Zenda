@@ -11,7 +11,7 @@ const HeroSection: React.FC = () => {
     const ref = useReveal();
 
     return(
-        <section ref={ref} className="hero-section">
+        <section id='inicio' ref={ref} className="hero-section">
         <h2>Refresca tu vida con el poder de la naturaleza.</h2>
         <p>Infusiones artesanales de Bugambilia y frutas exóticas.</p>
         <Button variant="accent" className="btn-large-font btn-gold-border">
@@ -56,7 +56,7 @@ const ProductsPreview: React.FC = () => {
     const ref = useRevealStagger('.product-card');
 
     return(
-        <section className="products-preview-section">
+        <section id='productos' className="products-preview-section">
             <h2>Explora Nuestros Sabores</h2>
             <div ref={ref} className="products-container">
                 {productsData.slice(0, 3).map(product => (
@@ -71,7 +71,7 @@ const CTASection: React.FC = () => {
     const ref = useReveal();
 
     return(
-        <section ref={ref} className="cta-section">
+        <section id='contacto' ref={ref} className="cta-section">
         <h2>¡No esperes más para probar la frescura Zenda!</h2>
         <Button variant="primary" className="btn-large-font btn-gold-border btn-shadow">
             Comprar en Línea Ahora
