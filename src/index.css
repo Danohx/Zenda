@@ -271,6 +271,7 @@ p {
     font-weight: 800;
     line-height: 1.1;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.8s ease forwards;
 }
 
 .hero-section p {
@@ -281,6 +282,8 @@ p {
     margin-left: auto;
     margin-right: auto;
     font-weight: 300;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.2s;
 }
 
 .hero-section img {
@@ -296,12 +299,17 @@ p {
     transform: scale(1.02);
 }
 
+.hero-section .btn {
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.4s;
+}
+
 /* ---------------------------------------------------- */
 /* 5. ABOUT US SECTION MEJORADA (Video Centrado Medio) */
 /* ---------------------------------------------------- */
 
 .about-us-section {
-    padding: 100px 5%;
+    padding: 25px 5%;
     background-color: var(--color-white);
     position: relative;
 }
@@ -348,7 +356,7 @@ p {
     /* AQUÍ CONTROLA EL TAMAÑO: 
        700px es un buen tamaño "medio" para desktop. 
        Si lo quieres más grande sube a 800px, más chico a 600px. */
-    max-width: 700px; 
+    max-width: 650px; 
     position: relative;
     border-radius: var(--border-radius-lg);
     overflow: hidden; /* Para que el video respete los bordes redondeados */
@@ -871,6 +879,47 @@ img.loaded {
     background: var(--color-primary-light);
 }
 
+/* === SCROLL REVEAL === */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.product-card:hover {
+  animation: float 2s ease-in-out infinite;
+}
+
+.cta-section .btn {
+  animation: pulse 2.5s infinite;
+}
+
+/* === PRODUCT CARD ENTRANCE ANIMATION === */
+
+.product-card {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.product-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 /* ---------------------------------------------------- */
 /* 13. MEDIA QUERIES PARA RESPONSIVE DESIGN */
 /* ---------------------------------------------------- */
@@ -901,6 +950,7 @@ img.loaded {
     .cta-section h2 {
         font-size: 2.3rem;
     }
+
 }
 
 /* Mobile */
@@ -1041,4 +1091,19 @@ img.loaded {
         padding-left: 10%;
         padding-right: 10%;
     }
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    transition-duration: 0.4s;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }
