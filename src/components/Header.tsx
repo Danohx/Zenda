@@ -19,7 +19,6 @@ const Header: React.FC = () => {
       <nav>
         <button onClick={() => scrollToSection('inicio')}>Inicio</button>
         <button onClick={() => scrollToSection('productos')}>Productos</button>
-        <button onClick={() => scrollToSection('historia')}>Historia</button>
         <button onClick={() => scrollToSection('contacto')}>Contacto</button>
       </nav>
 
